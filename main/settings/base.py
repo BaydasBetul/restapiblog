@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'rest_framework.authtoken',
     'dj_rest_auth',
+    'corsheaders',
     # my apps
     'users',
     'blog',
@@ -51,6 +52,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -135,3 +137,36 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.TokenAuthentication', ]
 
 }
+
+CORS_ORIGIN_ALLOW_ALL = True
+CORS_ALLOW_CREDENTIALS = True
+CORS_EXPOSE_HEADERS = (
+    'Access-Control-Allow-Origin: *',
+)
+
+# ## CORS SETUP IN DJANGO
+
+# ```bash
+# pip install django-cors-headers
+# ```
+
+# settings.py
+
+# ```python
+# ALLOWED_HOSTS = ['*']
+# INSTALLED_APPS = [
+#     # ...
+#     'corsheaders',
+# ]
+# MIDDLEWARE = [
+#     # ...
+#     'django.contrib.sessions.middleware.SessionMiddleware',
+#     'corsheaders.middleware.CorsMiddleware',
+#     'django.middleware.common.CommonMiddleware',
+#     # ...
+# ]
+# CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ALLOW_CREDENTIALS = True
+# CORS_EXPOSE_HEADERS = (
+#     'Access-Control-Allow-Origin: *',
+# )
