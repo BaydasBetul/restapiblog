@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'dj_rest_auth',
     'corsheaders',
+    'main',
     # my apps
     'users',
     'blog',
@@ -170,3 +171,4 @@ CORS_EXPOSE_HEADERS = (
 # CORS_EXPOSE_HEADERS = (
 #     'Access-Control-Allow-Origin: *',
 # )
+# python -m pip install django-cors-headers
